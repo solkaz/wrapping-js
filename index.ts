@@ -13,7 +13,7 @@ export function getDefaultBits(): number {
 /**
  * Sets the default bits used for an operation.
  */
-export function setDefaultBits(bits: number = 8) {
+export function setDefaultBits(bits: number) {
   defaultBits = bits;
 }
 
@@ -23,9 +23,9 @@ export function setDefaultBits(bits: number = 8) {
 function wrapNumber(n: number, bits: number): number {
   const max = 2 ** bits;
   if (n < 0) {
-    return max + n;
+    return n + max;
   }
-  return n % max;
+  return n - max * Math.floor(n / max);
 }
 
 /**
@@ -71,4 +71,22 @@ export function multiply(
   bits: number = defaultBits
 ): number {
   return wrapNumber(lhs * rhs, bits);
+}
+
+/**
+ * Divides `lhs` with `rhs`.
+ *
+ * Division can never cause overflow, so there's no wrapping ever needed.
+ * This is only implemented for completeness.
+ *
+ * @param lhs Left-hand operand of the operation.
+ * @param rhs Right-hand operand of the operation.
+ * @param _bits Unused and exists to make `divide` have the same signature as the other operations
+ */
+export function divide(
+  lhs: number,
+  rhs: number,
+  _bits: number = defaultBits
+): number {
+  return lhs / rhs;
 }

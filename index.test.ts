@@ -4,13 +4,14 @@ import {
   setDefaultBits,
   subtract,
   multiply,
+  divide,
 } from "./index";
 
 describe("wrapping", () => {
   describe("getDefaultBits/setDefaultBits", () => {
     afterEach(() => {
-      // Set the default back to normal
-      setDefaultBits();
+      // Set the default back to 8 bits
+      setDefaultBits(8);
     });
 
     test("default bits", () => {
@@ -63,6 +64,13 @@ describe("wrapping", () => {
     test("cases that do wrap", () => {
       expect(multiply(128, 2)).toBe(0);
       expect(multiply(25, 12)).toBe(44);
+    });
+  });
+
+  describe("divide", () => {
+    test("works", () => {
+      expect(divide(1, 1)).toBe(1);
+      expect(divide(4, 2)).toBe(2);
     });
   });
 });
