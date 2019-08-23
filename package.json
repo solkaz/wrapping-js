@@ -7,7 +7,7 @@
     "test:watch": "jest --watch",
     "clean": "rm -rf dist",
     "build": "rollup -c ./rollup.config.js",
-    "prepublishOnly": "yarn clean"
+    "prepack": "yarn clean && yarn build"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.cjs.js",
@@ -16,9 +16,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "wrapping": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
