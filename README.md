@@ -1,5 +1,7 @@
 # Wrapping
 
+[![npm version](https://badge.fury.io/js/wrapping.svg)](https://badge.fury.io/js/wrapping)
+
 Library for [wrapping arithmetic](<https://en.wikipedia.com/wiki/Wrapping_(graphics)>)
 
 ## Install
