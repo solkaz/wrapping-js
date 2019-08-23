@@ -3,7 +3,7 @@
     "incremental": true,
     "target": "es5",
     "lib": ["es2015"],
-    "module": "commonjs",
+    "module": "esnext",
     "outDir": "dist",
     "declaration": true,
     "removeComments": true,

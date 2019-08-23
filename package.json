@@ -1,8 +1,20 @@
 {
   "name": "wrapping",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "clean": "rm -rf dist",
+    "build": "rollup -c ./rollup.config.js"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "browser": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -11,11 +23,9 @@
     "@types/jest": "^24.0.18",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
+    "rollup": "^1.20.1",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.23.0",
     "typescript": "^3.5.3"
-  },
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "build": "tsc"
   }
 }
