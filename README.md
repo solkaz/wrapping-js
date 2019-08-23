@@ -7,6 +7,7 @@ Library for [wrapping arithmetic](<https://en.wikipedia.com/wiki/Wrapping_(graph
 ## Install
 
 NPM: `npm install --save-dev wrapping`
+
 Yarn: `yarn add wrapping`
 
 ## API
@@ -14,10 +15,13 @@ Yarn: `yarn add wrapping`
 ### Mathematical operators
 
 All functions here implement the same interface:
-`function(lhs: number, rhs: number, power?: number): number`
+
+`function(lhs: number, rhs: number, power?: number): number`, where:
 
 `lhs` - Left-hand operand of the operation
+
 `rhs` - Right-hand operand of the operation
+
 `power` - What is the integer power? Defaults to `defaultPower`, which defaults to `8`.
 
 #### `add(lhs: number, rhs: number, power?: number): number`
