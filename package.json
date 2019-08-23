@@ -1,6 +1,6 @@
 {
   "name": "wrapping",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "scripts": {
     "test": "jest",
@@ -17,7 +17,7 @@
     "dist"
   ],
   "dependencies": {
-    "wrapping": "^1.0.0"
+    "wrapping": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
