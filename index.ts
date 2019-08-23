@@ -1,27 +1,27 @@
 /**
- * The default bits value to use for an operation (add/subtract/multiply).
+ * The default power value to use for an operation (add/subtract/multiply).
  */
-let defaultBits: number = 8;
+let defaultPower: number = 8;
 
 /**
- * Gets the default bits used for an operation.
+ * Gets the default power used for an operation.
  */
-export function getDefaultBits(): number {
-  return defaultBits;
+export function getDefaultPower(): number {
+  return defaultPower;
 }
 
 /**
- * Sets the default bits used for an operation.
+ * Sets the default power used for an operation.
  */
-export function setDefaultBits(bits: number) {
-  defaultBits = bits;
+export function setDefaultPower(power: number) {
+  defaultPower = power;
 }
 
 /**
- * Wraps `n` according to the number of bits are allowed.
+ * Wraps `n` according to the number of power are allowed.
  */
-function wrapNumber(n: number, bits: number): number {
-  const max = 2 ** bits;
+function wrapNumber(n: number, radix: number): number {
+  const max = 2 ** radix;
   if (n < 0) {
     return n + max;
   }
@@ -33,14 +33,14 @@ function wrapNumber(n: number, bits: number): number {
  *
  * @param lhs Left-hand operand of the operation.
  * @param rhs Right-hand operand of the operation.
- * @param bits Number of bits allowed. This will default to `defaultBits`.
+ * @param radix Number of power allowed. This will default to `defaultPower`.
  */
 export function add(
   lhs: number,
   rhs: number,
-  bits: number = defaultBits
+  radix: number = defaultPower
 ): number {
-  return wrapNumber(lhs + rhs, bits);
+  return wrapNumber(lhs + rhs, radix);
 }
 
 /**
@@ -48,14 +48,14 @@ export function add(
  *
  * @param lhs Left-hand operand of the operation.
  * @param rhs Right-hand operand of the operation.
- * @param bits Number of bits allowed. This will default to `defaultBits`.
+ * @param radix Number of power allowed. This will default to `defaultPower`.
  */
 export function subtract(
   lhs: number,
   rhs: number,
-  bits: number = defaultBits
+  radix: number = defaultPower
 ): number {
-  return wrapNumber(lhs - rhs, bits);
+  return wrapNumber(lhs - rhs, radix);
 }
 
 /**
@@ -63,14 +63,14 @@ export function subtract(
  *
  * @param lhs Left-hand operand of the operation.
  * @param rhs Right-hand operand of the operation.
- * @param bits Number of bits allowed. This will default to `defaultBits`.
+ * @param power Number of power allowed. This will default to `defaultPower`.
  */
 export function multiply(
   lhs: number,
   rhs: number,
-  bits: number = defaultBits
+  power: number = defaultPower
 ): number {
-  return wrapNumber(lhs * rhs, bits);
+  return wrapNumber(lhs * rhs, power);
 }
 
 /**
@@ -81,12 +81,12 @@ export function multiply(
  *
  * @param lhs Left-hand operand of the operation.
  * @param rhs Right-hand operand of the operation.
- * @param _bits Unused and exists to make `divide` have the same signature as the other operations
+ * @param _power Unused and exists to make `divide` have the same signature as the other operations
  */
 export function divide(
   lhs: number,
   rhs: number,
-  _bits: number = defaultBits
+  _power: number = defaultPower
 ): number {
   return lhs / rhs;
 }
