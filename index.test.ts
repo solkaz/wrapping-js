@@ -1,32 +1,6 @@
-import {
-  add,
-  getDefaultPower,
-  setDefaultPower,
-  subtract,
-  multiply,
-  divide,
-} from "./index";
+import { add, subtract, multiply, divide } from "./index";
 
 describe("wrapping", () => {
-  describe("getDefaultPower/setDefaultPower", () => {
-    afterEach(() => {
-      // Set the default power back to 8
-      setDefaultPower(8);
-    });
-
-    test("default Power", () => {
-      expect(getDefaultPower()).toBe(8);
-    });
-
-    test("setDefaultPower modifies default power", () => {
-      setDefaultPower(2);
-      expect(getDefaultPower()).toBe(2);
-      expect(add(1, 3)).toBe(0);
-      expect(subtract(1, 3)).toBe(2);
-      expect(multiply(2, 2)).toBe(0);
-    });
-  });
-
   describe("add", () => {
     test("cases that don't wrap", () => {
       expect(add(0, 0)).toBe(0);

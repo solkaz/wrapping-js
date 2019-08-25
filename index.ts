@@ -1,31 +1,12 @@
 /**
- * The default power value to use for an operation (add/subtract/multiply).
- */
-let defaultPower: number = 8;
-
-/**
- * Gets the default power used for an operation.
- */
-export function getDefaultPower(): number {
-  return defaultPower;
-}
-
-/**
- * Sets the default power used for an operation.
- */
-export function setDefaultPower(power: number) {
-  defaultPower = power;
-}
-
-/**
  * Wraps `n` according to the number of power are allowed.
  */
-function wrapNumber(n: number, radix: number): number {
-  const max = 2 ** radix;
+function wrapNumber(n: number, min: number = 0, max: number = 0): number {
+  const c = max - min;
   if (n < 0) {
-    return n + max;
+    return n + c;
   }
-  return n - max * Math.floor(n / max);
+  return n - max * Math.floor((n - min) / c);
 }
 
 /**
@@ -35,12 +16,8 @@ function wrapNumber(n: number, radix: number): number {
  * @param rhs Right-hand operand of the operation.
  * @param radix Number of power allowed. This will default to `defaultPower`.
  */
-export function add(
-  lhs: number,
-  rhs: number,
-  radix: number = defaultPower
-): number {
-  return wrapNumber(lhs + rhs, radix);
+export function add(lhs: number, rhs: number): number {
+  return wrapNumber(lhs + rhs);
 }
 
 /**
@@ -50,12 +27,8 @@ export function add(
  * @param rhs Right-hand operand of the operation.
  * @param radix Number of power allowed. This will default to `defaultPower`.
  */
-export function subtract(
-  lhs: number,
-  rhs: number,
-  radix: number = defaultPower
-): number {
-  return wrapNumber(lhs - rhs, radix);
+export function subtract(lhs: number, rhs: number): number {
+  return wrapNumber(lhs - rhs);
 }
 
 /**
@@ -65,12 +38,8 @@ export function subtract(
  * @param rhs Right-hand operand of the operation.
  * @param power Number of power allowed. This will default to `defaultPower`.
  */
-export function multiply(
-  lhs: number,
-  rhs: number,
-  power: number = defaultPower
-): number {
-  return wrapNumber(lhs * rhs, power);
+export function multiply(lhs: number, rhs: number): number {
+  return wrapNumber(lhs * rhs);
 }
 
 /**
@@ -83,10 +52,6 @@ export function multiply(
  * @param rhs Right-hand operand of the operation.
  * @param _power Unused and exists to make `divide` have the same signature as the other operations
  */
-export function divide(
-  lhs: number,
-  rhs: number,
-  _power: number = defaultPower
-): number {
+export function divide(lhs: number, rhs: number): number {
   return lhs / rhs;
 }

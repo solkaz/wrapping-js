@@ -34,16 +34,6 @@ All functions here implement the same interface:
 
 This is redundant, as division between two numbers will never result in overflow. Implemented only for completeness sakes.
 
-### Utils
-
-#### `getDefaultPower(): number`
-
-Gets the default `power` value used when using an operator
-
-#### `setDefaultPower(power: number): void`
-
-Sets the default `power` value used when using an operator.
-
 ## License
 
 [MIT](./LICENSE.md)
