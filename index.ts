@@ -1,9 +1,37 @@
+/**
+ * Represents a wrapping context in which wrapping operations are made.
+ *
+ */
 export class Wrapping {
+  /**
+   * The value of this.max - this.min.
+   */
   private minMaxDifference: number;
+
   constructor(private min: number, private max: number) {
+    if (Number.isNaN(min) || Number.isNaN(max)) {
+      throw new Error("NaN is not an accepted value for min and max");
+    }
+
+    if (!Number.isFinite(min) || !Number.isFinite(max)) {
+      throw new Error("min and max values must be finite");
+    }
+
+    if (!Number.isSafeInteger(min) || !Number.isSafeInteger(max)) {
+      throw new Error("min and max values must be safe integers");
+    }
+
+    if (min >= max) {
+      throw new Error("min value must be less than max value");
+    }
+
     this.minMaxDifference = this.max - this.min;
   }
 
+  /**
+   * Wraps a number according to the `min` and `max` values set in the constructor.
+   * @param n The number to wrap
+   */
   wrapNumber = (n: number): number => {
     if (n < 0) {
       return n + this.minMaxDifference;
