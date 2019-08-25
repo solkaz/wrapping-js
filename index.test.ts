@@ -1,6 +1,8 @@
-import { add, subtract, multiply, divide } from "./index";
+import { Wrapping } from "./index";
 
 describe("wrapping", () => {
+  const { add, subtract, multiply, divide } = new Wrapping(0, 2 ** 8);
+
   describe("add", () => {
     test("cases that don't wrap", () => {
       expect(add(0, 0)).toBe(0);

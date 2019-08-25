@@ -1,57 +1,59 @@
-/**
- * Wraps `n` according to the number of power are allowed.
- */
-function wrapNumber(n: number, min: number = 0, max: number = 0): number {
-  const c = max - min;
-  if (n < 0) {
-    return n + c;
+export class Wrapping {
+  private minMaxDifference: number;
+  constructor(private min: number, private max: number) {
+    this.minMaxDifference = this.max - this.min;
   }
-  return n - max * Math.floor((n - min) / c);
-}
 
-/**
- * Adds `lhs` to `rhs`, returning the wrapped value.
- *
- * @param lhs Left-hand operand of the operation.
- * @param rhs Right-hand operand of the operation.
- * @param radix Number of power allowed. This will default to `defaultPower`.
- */
-export function add(lhs: number, rhs: number): number {
-  return wrapNumber(lhs + rhs);
-}
+  wrapNumber = (n: number): number => {
+    if (n < 0) {
+      return n + this.minMaxDifference;
+    }
+    return (
+      n -
+      this.minMaxDifference * Math.floor((n - this.min) / this.minMaxDifference)
+    );
+  };
 
-/**
- * Subtracts `rhs` from `lhs`, returning the wrapped version.
- *
- * @param lhs Left-hand operand of the operation.
- * @param rhs Right-hand operand of the operation.
- * @param radix Number of power allowed. This will default to `defaultPower`.
- */
-export function subtract(lhs: number, rhs: number): number {
-  return wrapNumber(lhs - rhs);
-}
+  /**
+   * Adds `first` to `second`, returning the wrapped value.
+   *
+   * @param first The first number in an addition.
+   * @param second The second number in an addition.
+   */
+  add = (first: number, second: number): number => {
+    return this.wrapNumber(first + second);
+  };
 
-/**
- * Multiplies `lhs` by `rhs`, returning the wrapped version.
- *
- * @param lhs Left-hand operand of the operation.
- * @param rhs Right-hand operand of the operation.
- * @param power Number of power allowed. This will default to `defaultPower`.
- */
-export function multiply(lhs: number, rhs: number): number {
-  return wrapNumber(lhs * rhs);
-}
+  /**
+   * Subtracts `second` from `first`, returning the wrapped value.
+   *
+   * @param first The first number in an subtraction
+   * @param second The second number in an subtraction
+   */
+  subtract = (first: number, second: number): number => {
+    return this.wrapNumber(first - second);
+  };
 
-/**
- * Divides `lhs` with `rhs`.
- *
- * Division can never cause overflow, so there's no wrapping ever needed.
- * This is only implemented for completeness.
- *
- * @param lhs Left-hand operand of the operation.
- * @param rhs Right-hand operand of the operation.
- * @param _power Unused and exists to make `divide` have the same signature as the other operations
- */
-export function divide(lhs: number, rhs: number): number {
-  return lhs / rhs;
+  /**
+   * Multiplies `first` by `second`, returning the wrapped value.
+   *
+   * @param first The first number in a multiplication.
+   * @param second The second number in a multiplication.
+   */
+  multiply = (first: number, second: number): number => {
+    return this.wrapNumber(first * second);
+  };
+
+  /**
+   * Divides `first` with `second`.
+   *
+   * Division can not cause overflow.
+   * This function is redundant, and is implemented for completeness.
+   *
+   * @param first The first number in a division.
+   * @param second The second number in a division.
+   */
+  divide = (first: number, second: number): number => {
+    return first / second;
+  };
 }
