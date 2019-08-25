@@ -1,6 +1,5 @@
 /**
  * Represents a wrapping context in which wrapping operations are made.
- *
  */
 export class Wrapping {
   /**
