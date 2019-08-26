@@ -3,11 +3,11 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
     "clean": "rm -rf dist",
     "build": "rollup -c ./rollup.config.js",
     "prepack": "yarn clean && yarn build",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "types": "dist/index.d.ts",
