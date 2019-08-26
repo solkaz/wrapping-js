@@ -1,6 +1,7 @@
 # Wrapping
 
 [![npm version](https://badge.fury.io/js/wrapping.svg)](https://badge.fury.io/js/wrapping)
+[![Coverage Status](https://coveralls.io/repos/github/solkaz/wrapping-js/badge.svg?branch=master)](https://coveralls.io/github/solkaz/wrapping-js?branch=master)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
 Library for [wrapping arithmetic](<https://en.wikipedia.com/wiki/Wrapping_(graphics)>)
