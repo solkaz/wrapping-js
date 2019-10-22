@@ -2,6 +2,16 @@
   "name": "wrapping",
   "version": "2.0.0",
   "license": "MIT",
+  "description": "Library for wrapping arithmetic",
+  "keywords": [
+    "wrapping",
+    "math",
+    "arithmetic",
+    "uint8",
+    "uint16"
+  ],
+  "homepage": "https://github.com/solkaz/wrapping-js#readme",
+  "repository": "github:solkaz/wrapping-js",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "rollup -c ./rollup.config.js",
