@@ -48,6 +48,10 @@ Methods:
 
   This is redundant, as division between two numbers will never result in overflow. Implemented only for completeness sakes.
 
+- `wrapNumber(n: number): number`
+
+  Wraps a number according to the `min` and `max` values set in the constructor. This can be calculated using the formula `n - (max - min) - Math.floor((n - min) / (max - min))`.
+
 ## Motivation
 
 This project was inspired by Rust's [`Wrapping` struct](https://doc.rust-lang.org/std/num/struct.Wrapping.html) and the [`wrapping_add`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_add)/[`wrapping_sub`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_sub)/[`wrapping_mul`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_mul)/[`wrapping_div`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_div) functions.

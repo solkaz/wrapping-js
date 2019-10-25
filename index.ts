@@ -29,6 +29,8 @@ export class Wrapping {
 
   /**
    * Wraps a number according to the `min` and `max` values set in the constructor.
+   * This can be calculated using the following formula:
+   * `n - (max - min) - Math.floor((n - min) / (max - min))`.
    * @param n The number to wrap
    */
   wrapNumber = (n: number): number => {
