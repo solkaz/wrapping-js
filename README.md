@@ -61,6 +61,10 @@ Methods:
 
 This project was inspired by Rust's [`Wrapping` struct](https://doc.rust-lang.org/std/num/struct.Wrapping.html) and the [`wrapping_add`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_add)/[`wrapping_sub`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_sub)/[`wrapping_mul`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_mul)/[`wrapping_div`](https://doc.rust-lang.org/std/primitive.u8.html#method.wrapping_div) functions.
 
+## Contributing
+
+Contributions are appreciated! Please note that this project is released with a [Contributor Code of Conduct](./CODE-OF-CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 ## License
 
 [MIT](./LICENSE.md)
