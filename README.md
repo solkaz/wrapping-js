@@ -8,7 +8,7 @@ Library for [wrapping arithmetic](<https://en.wikipedia.com/wiki/Wrapping_(graph
 
 ## Install
 
-NPM: `npm install --save-dev wrapping`
+NPM: `npm install wrapping`
 
 Yarn: `yarn add wrapping`
 
@@ -21,11 +21,16 @@ If you want to emulate numeric data types like a `uint8` (unsigned 8-bit integer
 ## Example
 
 ```js
-// Create a new context to operate on unsigned 8-bit numbers
-const wrapper = new Wrapping(0, 256 /* 2 ** 8 */);
-console.log(wrapper.add(1, 255)); // 0
-console.log(wrapper.subtract(0, 1)); // 255
-console.log(wrapper.multiply(5, 52)); // 4
+/* Create a new context to operate on unsigned 8-bit numbers.
+ * This means that for any math operation (add/subtract/multiply/divide),
+ * the result _must_ be between the `min` and `max` (inclusive);
+ * In this case, 0 - 255.
+ */
+
+const uInt8 = new Wrapping(0, 256 /* 2 ** 8 */);
+console.log(uInt8.add(1, 255)); // 0
+console.log(uInt8.subtract(0, 1)); // 255
+console.log(uInt8.multiply(5, 52)); // 4
 ```
 
 ## API
